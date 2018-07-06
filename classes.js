@@ -15,17 +15,11 @@ function Tile (i, j, size) {
     this.nearbyBombs = 0;
     Tile.prototype.drawTile = function () {
         fill(150,175,181);
-        rect(this.xPos, this.yPos, size, size);
+        rect(this.xPos, this.yPos, this.size, this.size);
     }; this.drawTile();
 
     Tile.prototype.clicked = function (x, y, button) {
-        let boundary = this.size/2;
-        let centerX = this.xPos + boundary;
-        let centerY = this.yPos + boundary;
-        let distanceX = abs(x - centerX);
-        let distanceY = abs(y - centerY);
-
-        if ((distanceX < boundary) && (distanceY < boundary)) {
+        if ((x > this.xPos && x < this.xPos + this.size) && (y > this.yPos && y < this.yPos + this.size)) {
             if (button === LEFT || button === CENTER) {
                 this.digTile();
             } else if (button === RIGHT) {

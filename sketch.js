@@ -51,8 +51,7 @@ function mouseReleased() {
     for (let i = 0; i < tilesPerSide; i++) {
         for (let j = 0; j < tilesPerSide; j++) {
             if(field.tiles[i][j].clicked(mouseX, mouseY, mouseButton)) {
-                i = tilesPerSide;
-                j = i;
+                return;
             }
         }
     }
